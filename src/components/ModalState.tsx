@@ -42,7 +42,9 @@ export default function ModalState(props: ModalStateProps) {
             base64Image = await new Promise<string>((resolve, reject) => {
                 fileReader.onload = () => resolve(fileReader.result as string);
                 fileReader.onerror = reject;
-                formData.image ? fileReader.readAsDataURL(formData.image) : false;
+                if (formData.image) {
+                    fileReader.readAsDataURL(formData.image);
+                }
             });
         }
         
@@ -62,8 +64,6 @@ export default function ModalState(props: ModalStateProps) {
                 },
                 body: JSON.stringify(payload),
             });
-
-            console.log("Payload enviado:", payload);
     
             if (!resp.ok) {
                 throw new Error('Erro ao enviar o produto');

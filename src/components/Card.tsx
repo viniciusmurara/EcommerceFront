@@ -31,7 +31,7 @@ export default async function Card() {
           <img
             src={`${imageBaseUrl}${product.image}`} // Concatena a URL base com o nome da imagem
             alt={product.name}
-            className="h-[350px] object-cover w-full"
+            className="h-[350px] w-full"
           />
           <div className="flex flex-col justify-between flex-1 p-4">
             <div>
